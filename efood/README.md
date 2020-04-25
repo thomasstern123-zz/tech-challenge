@@ -9,12 +9,17 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+## Requirements
 
-## Learn more
+* postgres 9.6.1 or greater
+* elixir 1.4.5
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+## Install
+
+* Download dependencies `mix deps.get`
+* Setup database `mix ecto.create && mix ecto.migrate`
+* Start server `mix phx.server`
+
+## Run the tests
+
+* Run all the tests `mix test`
