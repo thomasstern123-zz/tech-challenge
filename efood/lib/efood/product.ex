@@ -11,6 +11,7 @@ defmodule Efood.Product do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:product_name, :categories, :url])
+    |> validate_required([:product_name])
   end
 
 end

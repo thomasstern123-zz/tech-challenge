@@ -1,0 +1,9 @@
+<h4>Product Catalog</h4>
+
+<ul class="collection">
+  <%= for product <- @products do %>
+    <li class="collection-item">
+      <%= link product.product_name, to: Routes.product_path(@conn, :show, product) %>
+    </li>
+  <% end %>
+</ul>

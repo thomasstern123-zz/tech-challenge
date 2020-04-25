@@ -16,6 +16,8 @@ defmodule EfoodWeb.Router do
   scope "/", EfoodWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    resources "/", ProductController, except: [:index]
+    get "/", ProductController, :index
+    get "/products/:id", ProductController, :show
   end
 end

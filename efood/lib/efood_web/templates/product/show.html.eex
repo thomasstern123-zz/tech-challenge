@@ -1,0 +1,14 @@
+<h3><%= @product.product_name %></h3>
+
+<div>
+  <ul>
+    <li>
+      &bull; Categories:
+      <%= @product.categories %>
+    </li>
+    <li>
+      &bull; URL:
+      <%= @product.url %>
+    </li>
+  </ul>
+</div>

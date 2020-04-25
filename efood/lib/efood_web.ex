@@ -21,6 +21,10 @@ defmodule EfoodWeb do
     quote do
       use Phoenix.Controller, namespace: EfoodWeb
 
+      alias Efood.Repo
+      import Ecto
+      import Ecto.Query
+
       import Plug.Conn
       import EfoodWeb.Gettext
       alias EfoodWeb.Router.Helpers, as: Routes
