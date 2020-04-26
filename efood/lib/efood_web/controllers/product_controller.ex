@@ -1,9 +1,10 @@
 defmodule EfoodWeb.ProductController do
   use EfoodWeb, :controller
   alias Efood.Product
+  import Ecto.Query, only: [from: 2]
 
-  def index(conn, _params) do
-    products = Repo.all(Product)
+  def index(conn, params) do
+    products = list_products(params)
     render conn, "index.html", products: products
   end
 
@@ -11,5 +12,21 @@ defmodule EfoodWeb.ProductController do
     product = Repo.get!(Product, product_id)
     render conn, "show.html", product: product
   end
+
+  defp list_products(params) do
+    search_term = get_in(params, ["query"])
+
+    Product
+    |> search(search_term)
+    |> Repo.all()
+  end
+
+  defp search(query, search_term) do
+    wildcard_search = "%#{search_term}%"
+
+    from product in query,
+    where: ilike(product.product_name, ^wildcard_search)
+  end
+
 
 end

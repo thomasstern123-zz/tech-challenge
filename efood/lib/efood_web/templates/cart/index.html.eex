@@ -1,0 +1,9 @@
+<h4>Cart</h4>
+
+<ul class="collection">
+  <%= for cart_item <- @cart do %>
+    <li class="collection-item">
+      <%= cart_item.product_name %>
+    </li>
+  <% end %>
+</ul>
