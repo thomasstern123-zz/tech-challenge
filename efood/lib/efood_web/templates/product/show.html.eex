@@ -14,8 +14,7 @@
 </ul>
 
 <div class="fixed-action-btn">
-  <%= link to: Routes.cart_path(@conn, :update), class: "btn-floating btn-large waves-effect waves-light red" do %>
-  <span class="iconify" data-icon="ic-outline-add-shopping-cart" data-inline="true" data-width="30px" data-height="30px"></span>
+  <%= link to: Routes.cart_path(@conn, :add), class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <span class="iconify" data-icon="ic-outline-add-shopping-cart" data-inline="true" data-width="30px" data-height="25px"></span>
   <% end %>
-  </a>
 </div>

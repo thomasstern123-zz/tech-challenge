@@ -17,6 +17,26 @@
         <a href="/" class="brand-logo">
           efood
         </a>
+        <ul class="right">
+          <%= if @conn.assigns[:user] do %>
+            <li>
+              <%= link "Sign Out", to:
+              EfoodWeb.Router.Helpers.auth_path(@conn, :signout), method: :put %>
+            </li>
+          <% else %>
+            <li>
+              <%= link "Sign in with Github", to: EfoodWeb.Router.Helpers.auth_path(@conn, :request, "github") %>
+            </li>
+          <% end %>
+        </ul>
+        <ul class="shopping-cart right">
+          <%= if @conn.assigns[:user] do %>
+            <li>
+              <%= link "My Cart", to:
+              EfoodWeb.Router.Helpers.cart_path(@conn, :index) %>
+            </li>
+          <% end %>
+        </ul>
       </div>
     </nav>
 

@@ -20,7 +20,7 @@ defmodule Efood.MixProject do
   def application do
     [
       mod: {Efood.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :ueberauth, :ueberauth_github]
     ]
   end
 
@@ -44,7 +44,9 @@ defmodule Efood.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:csv, "~> 2.3"},
-      {:ex_doc, "~>0.12"}
+      {:ex_doc, "~> 0.12"},
+      {:ueberauth, "~> 0.3"},
+      {:ueberauth_github, "~> 0.4"}
     ]
   end
 
