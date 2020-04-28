@@ -33,7 +33,7 @@
           <%= if @conn.assigns[:user] do %>
             <li>
               <%= link "My Cart", to:
-              EfoodWeb.Router.Helpers.cart_path(@conn, :index) %>
+              EfoodWeb.Router.Helpers.cart_path(@conn, :show, @conn.assigns.user.id) %>
             </li>
           <% end %>
         </ul>

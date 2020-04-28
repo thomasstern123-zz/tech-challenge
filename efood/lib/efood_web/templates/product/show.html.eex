@@ -1,4 +1,6 @@
 <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+<script src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+
 <h3><%= @product.product_name %></h3>
 
 
@@ -13,8 +15,10 @@
   </li>
 </ul>
 
-<div class="fixed-action-btn">
-  <%= link to: Routes.cart_path(@conn, :add), class: "btn-floating btn-large waves-effect waves-light red" do %>
-    <span class="iconify" data-icon="ic-outline-add-shopping-cart" data-inline="true" data-width="30px" data-height="25px"></span>
-  <% end %>
-</div>
+<%= if @conn.assigns[:user] do %>
+  <div class="fixed-action-btn">
+    <%= link to: Routes.cart_path(@conn, :update, @conn.assigns.user.id), method: :put, class: "btn-floating btn-large waves-effect waves-light red" do %>
+      <span class="iconify" data-icon="ic-outline-add-shopping-cart" data-inline="true" data-width="30px" data-height="25px"></span>
+    <% end %>
+  </div>
+<% end %>

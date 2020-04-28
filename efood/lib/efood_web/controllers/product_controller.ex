@@ -3,6 +3,8 @@ defmodule EfoodWeb.ProductController do
   alias Efood.Product
   import Ecto.Query, only: [from: 2]
 
+  plug EfoodWeb.Plugs.SetProduct when action in [:show]
+
   def index(conn, params) do
     products = list_products(params)
     render conn, "index.html", products: products
@@ -25,7 +27,9 @@ defmodule EfoodWeb.ProductController do
     wildcard_search = "%#{search_term}%"
 
     from product in query,
-    where: ilike(product.product_name, ^wildcard_search)
+    where: ilike(product.product_name, ^wildcard_search),
+    or_where: ilike(product.categories, ^wildcard_search),
+    or_where: ilike(product.url, ^wildcard_search)
   end
 
 

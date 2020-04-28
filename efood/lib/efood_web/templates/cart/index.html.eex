@@ -4,6 +4,10 @@
   <%= for cart_item <- @cart do %>
     <li class="collection-item">
       <%= cart_item.product_name %>
+
+      <div class="right">
+        <%= link "Remove from Cart", to: Routes.cart_path(@conn, :delete, cart_item), method: :delete %>
+      </div>
     </li>
   <% end %>
 </ul>

@@ -20,11 +20,17 @@ defmodule EfoodWeb.Router do
     get "/", ProductController, :index
     get "/products", ProductController, :index
     get "/products/:id", ProductController, :show
-    get "/cart", CartController, :index
-    get "/cart", CartController, :add
 
     # resources "products", ProductController
     # resources "cart", CartController
+  end
+
+  scope "/cart", EfoodWeb do
+    pipe_through :browser
+
+    get "/:id", CartController, :show
+    put "/:id", CartController, :update
+    delete "/:id", CartController, :delete
   end
 
   scope "/auth", EfoodWeb do
