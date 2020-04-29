@@ -1,4 +1,8 @@
 defmodule EfoodWeb.Router do
+  @moduledoc """
+  Module for establishing application routes.
+  """
+
   use EfoodWeb, :router
 
   pipeline :browser do
@@ -20,9 +24,6 @@ defmodule EfoodWeb.Router do
     get "/", ProductController, :index
     get "/products", ProductController, :index
     get "/products/:id", ProductController, :show
-
-    # resources "products", ProductController
-    # resources "cart", CartController
   end
 
   scope "/cart", EfoodWeb do

@@ -1,4 +1,10 @@
 defmodule Efood.Repo.Migrations.AddCart do
+  @moduledoc """
+  This migration created the cart table with the following fields:\n
+    -product_name\n
+    -product_quantity
+  """
+
   use Ecto.Migration
 
   def change do

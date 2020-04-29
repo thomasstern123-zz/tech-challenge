@@ -1,30 +1,22 @@
 defmodule EfoodWeb do
   @moduledoc """
-  The entrypoint for defining your web interface, such
-  as controllers, views, channels and so on.
+  The entrypoint for defining web interface (controllers, views, etc.)
 
-  This can be used in your application as:
+  This can be used in the application as:
 
       use EfoodWeb, :controller
       use EfoodWeb, :view
 
   The definitions below will be executed for every view,
-  controller, etc, so keep them short and clean, focused
-  on imports, uses and aliases.
-
-  Do NOT define functions inside the quoted expressions
-  below. Instead, define any helper function in modules
-  and import those modules here.
+  controller, etc.
   """
 
   def controller do
     quote do
       use Phoenix.Controller, namespace: EfoodWeb
-
       alias Efood.Repo
       import Ecto
       import Ecto.Query
-
       import Plug.Conn
       import EfoodWeb.Gettext
       alias EfoodWeb.Router.Helpers, as: Routes

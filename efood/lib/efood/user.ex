@@ -1,4 +1,12 @@
 defmodule Efood.User do
+  @moduledoc """
+  Schema for Users.\n
+  Fields:\n
+    -email\n
+    -provider\n
+    -token
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -10,10 +18,15 @@ defmodule Efood.User do
     timestamps()
   end
 
+  @doc """
+  Validates required fields:\n
+    -email\n
+    -provider\n
+    -token
+  """
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:email, :provider, :token])
     |> validate_required([:email, :provider, :token])
   end
-
 end
