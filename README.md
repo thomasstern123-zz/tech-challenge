@@ -6,14 +6,25 @@ Welcome to the efood application! Here you can browse our product catalog and-gi
 
 ## Setup
 
-To start your Phoenix server, open your computer's terminal and navigate to the efood directory. From there, do the following:
+To start your Phoenix server, open your computer's terminal and navigate to the `efood` directory inside of the `tech-challenge` folder. From there, do the following:
 
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.setup`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Read the documentation by opening `docs/index.html`
-    * Mac: run `open docs/index.html`
-    * Windows: run `start docs/index.html`
+	* To do this, you will need to change the username in the dev.ex file to that of your local user. Open `efood/config/dev.exs` and change `thomasstern` to whatever your username is. I had trouble implementing environment variables here and will need to make this process easier in the future. Here is an example of what it should look like:
+
+`# Configure your database
+config :efood, Efood.Repo,
+  username: "insert_your_username_here",
+  password: "",
+  database: "efood_dev",
+  hostname: "localhost",
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10`
+
+  * Install Node.js dependencies with `cd assets && npm install` (make sure to cd back into the efood directory after)
+  * Read the documentation by running `mix docs` and opening `doc/index.html`
+    * Mac: run `open doc/index.html`
+    * Windows: run `start doc/index.html`
     
   * Start Phoenix endpoint with `mix phx.server`
 
@@ -21,8 +32,13 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser. Y
 
 ## Requirements
 
-* postgres 9.6.1 or greater
-* elixir 1.4.5
+* phoenix 1.4.16 or greater
+* psql (postgresql) 12.2 or greater
+* elixir 1.10.2 or greater
+* node.js 6 or greater
+
+
+May work with earlier versions (not tested)
 
 ## Notes
 
