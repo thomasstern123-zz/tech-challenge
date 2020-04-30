@@ -9,6 +9,9 @@ Welcome to the efood application! Here you can browse our product catalog and-gi
 To start your Phoenix server, open your computer's terminal and navigate to the `efood` directory inside of the `tech-challenge` folder. From there, do the following:
 
   * Install dependencies with `mix deps.get`
+  * Start up the postgres database
+    * Mac: `brew services start postgresql`
+    * Windows: `pg_ctl -D "postgres_sql_database_directory" start` (i.e. `pg_ctl -D "C:\Program Files\PostgreSQL\12.2\data" start`)
   * Create and migrate your database with `mix ecto.setup`
 	* To do this, you will need to change the username in the dev.ex file to that of your local user. Open `efood/config/dev.exs` and change `thomasstern` to whatever your username is. I had trouble implementing environment variables here and will need to make this process easier in the future. Here is an example of what it should look like:
 
