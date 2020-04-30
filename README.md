@@ -12,14 +12,14 @@ To start your Phoenix server, open your computer's terminal and navigate to the 
   * Create and migrate your database with `mix ecto.setup`
 	* To do this, you will need to change the username in the dev.ex file to that of your local user. Open `efood/config/dev.exs` and change `thomasstern` to whatever your username is. I had trouble implementing environment variables here and will need to make this process easier in the future. Here is an example of what it should look like:
 
-`# Configure your database\n
-config :efood, Efood.Repo,\n
-  username: "insert_your_username_here",\n
-  password: "",\n
-  database: "efood_dev",\n
-  hostname: "localhost",\n
-  show_sensitive_data_on_connection_error: true,\n
-  pool_size: 10\n`
+`# Configure your database/n
+config :efood, Efood.Repo,/n
+  username: "insert_your_username_here",/n
+  password: "",/n
+  database: "efood_dev",/n
+  hostname: "localhost",/n
+  show_sensitive_data_on_connection_error: true,/n
+  pool_size: 10/n`
 
   * Install Node.js dependencies with `cd assets && npm install` (make sure to cd back into the efood directory after)
   * Read the documentation by running `mix docs` and opening `doc/index.html`
